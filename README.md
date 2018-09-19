@@ -1,2 +1,1 @@
-# Materal.WebStockClient
-WebStock客户端
+# Materal.WebStock

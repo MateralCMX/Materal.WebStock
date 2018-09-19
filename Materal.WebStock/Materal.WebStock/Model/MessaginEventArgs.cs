@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 namespace Materal.WebStock.Model
 {
@@ -7,20 +6,16 @@ namespace Materal.WebStock.Model
     /// <summary>
     /// 消息传递事件参数
     /// </summary>
-    public class MessaginEventArgs:EventArgs
+    public class MessaginEventArgs : EventArgs
     {
         /// <summary>
         /// 消息对象
         /// </summary>
         public string Message { get; set; }
         /// <summary>
-        /// 编码格式
+        /// 数据
         /// </summary>
-        public Encoding Encoding { get; set; } = Encoding.UTF8;
-        /// <summary>
-        /// 消息byte数组
-        /// </summary>
-        public byte[] ByteArray { get; set; }
+        public object Data { get; set; }
         /// <summary>
         /// 类型
         /// </summary>

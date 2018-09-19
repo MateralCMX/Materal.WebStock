@@ -4,7 +4,7 @@ using Materal.WebStock.Events.Model;
 
 namespace TestClient.Events
 {
-    public class EventsException : WebStockClientEventException
+    public class EventsException : EventException
     {
         public EventsException()
         {

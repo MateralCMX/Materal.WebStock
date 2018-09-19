@@ -10,8 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Materal.WebStock.Common\Materal.WebStock.Common.csproj" />
-    <ProjectReference Include="..\Materal.WebStock.Events\Materal.WebStock.Events.csproj" />
+    <ProjectReference Include="..\Materal.WebStock\Materal.WebStock.csproj" />
   </ItemGroup>
 
 </Project>

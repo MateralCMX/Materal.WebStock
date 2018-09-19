@@ -1,11 +1,11 @@
-﻿using Materal.WebStock.Commands;
+﻿using System.Windows.Input;
+using Materal.WebStock.Commands;
 using MateralTools.Base.Model;
 using MateralTools.MConvert.Manager;
-using System;
 
 namespace TestClient.Commands
 {
-    public abstract class Command : IWebStockClientCommand
+    public abstract class Command : ICommand<string>
     {
         /// <summary>
         /// 转换为文本
@@ -22,5 +22,9 @@ namespace TestClient.Commands
                 throw new CommandException("转换为命令Json出错", ex);
             }
         }
+
+        public string HandelerName { get; set; }
+        public string Data { get; set; }
+        public string Message { get; set; }
     }
 }

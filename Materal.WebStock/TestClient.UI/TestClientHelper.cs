@@ -1,5 +1,4 @@
-﻿using Materal.WebStock.Commands;
-using Materal.WebStock.Events;
+﻿using Materal.WebStock;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Reflection;
@@ -19,7 +18,7 @@ namespace TestClient.UI
             Services = new ServiceCollection();
             Services.AddCommandBus<string>(Assembly.Load("TestClient.CommandHandlers"));
             Services.AddEventBus<string>(Assembly.Load("TestClient.EventHandlers"));
-            Services.AddSingleton<ITestClientWebStockClient, TestClientWebStockClientImpl>();
+            Services.AddSingleton<ITestClientClient, TestClientClientImpl>();
         }
         /// <summary>
         /// Bulid服务

@@ -6,12 +6,12 @@
     public enum MessageingTypeEnum
     {
         /// <summary>
-        /// 发送
+        /// 命令
         /// </summary>
-        Send,
+        Command,
         /// <summary>
-        /// 接收
+        /// 事件
         /// </summary>
-        Receive
+        Event
     }
 }

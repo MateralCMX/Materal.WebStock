@@ -5,7 +5,7 @@ using MateralTools.MVerify;
 
 namespace TestClient.Events
 {
-    public class Event: IWebStockClientEvent
+    public class Event: IEvent<string>
     {
         /// <summary>
         /// 命令名
@@ -27,21 +27,10 @@ namespace TestClient.Events
         /// <summary>
         /// 处理器名称
         /// </summary>
-        public string HandlerName => EventName + "EventHandler";
+        public string HandlerName { get; set; }
         /// <summary>
-        /// 转换为文本
+        /// 数据
         /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            try
-            {
-                return this.MToJson();
-            }
-            catch (MException ex)
-            {
-                throw new EventsException("转换为事件Json出错", ex);
-            }
-        }
+        public string Data { get; set; }
     }
 }

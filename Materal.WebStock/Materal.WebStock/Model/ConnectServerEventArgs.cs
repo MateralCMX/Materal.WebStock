@@ -17,6 +17,6 @@ namespace Materal.WebStock.Model
         /// <summary>
         /// 状态
         /// </summary>
-        public WebStockClientStateEnum State { get; set; }
+        public ClientStateEnum State { get; set; }
     }
 }

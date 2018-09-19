@@ -3,11 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
+    <Authors>Materal</Authors>
+    <Product>Materal.WebStock</Product>
+    <Description>Materal.WebStock</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MateralTools.Base" Version="1.0.8" />
     <PackageReference Include="MateralTools.MVerify" Version="1.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
   </ItemGroup>
 
 </Project>

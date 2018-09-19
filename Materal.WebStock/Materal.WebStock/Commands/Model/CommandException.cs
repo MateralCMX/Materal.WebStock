@@ -1,10 +1,9 @@
-﻿using Materal.WebStock.Commands.Model;
-using System;
+﻿using System;
 using System.Runtime.Serialization;
 
-namespace TestClient.Commands
+namespace Materal.WebStock.Commands.Model
 {
-    public class CommandException : Materal.WebStock.Commands.Model.CommandException
+    public class CommandException : ApplicationException
     {
         public CommandException()
         {

@@ -15,6 +15,6 @@ namespace Materal.WebStock.Model
         /// <summary>
         /// 配置对象
         /// </summary>
-        public WebStockClientConfigModel Config { get; set; }
+        public ClientConfigModel Config { get; set; }
     }
 }

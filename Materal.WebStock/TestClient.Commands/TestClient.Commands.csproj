@@ -9,8 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Materal.WebStock.Commands\Materal.WebStock.Commands.csproj" />
-    <ProjectReference Include="..\Materal.WebStock.Common\Materal.WebStock.Common.csproj" />
+    <ProjectReference Include="..\Materal.WebStock\Materal.WebStock.csproj" />
   </ItemGroup>
 
 </Project>

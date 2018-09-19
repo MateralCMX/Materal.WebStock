@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Materal.WebStockClient\Materal.WebStockClient.csproj" />
+    <ProjectReference Include="..\TestClient.Commands\TestClient.Commands.csproj" />
+    <ProjectReference Include="..\TestClient.Events\TestClient.Events.csproj" />
+  </ItemGroup>
+
+</Project>

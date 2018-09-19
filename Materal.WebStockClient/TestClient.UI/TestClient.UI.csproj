@@ -5,4 +5,17 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TestClient.CommandHandlers\TestClient.CommandHandlers.csproj" />
+    <ProjectReference Include="..\TestClient.Commands\TestClient.Commands.csproj" />
+    <ProjectReference Include="..\TestClient.Common\TestClient.Common.csproj" />
+    <ProjectReference Include="..\TestClient.EventHandlers\TestClient.EventHandlers.csproj" />
+    <ProjectReference Include="..\TestClient.Events\TestClient.Events.csproj" />
+    <ProjectReference Include="..\TestClient.WebStockClient\TestClient.WebStockClient.csproj" />
+  </ItemGroup>
+
 </Project>

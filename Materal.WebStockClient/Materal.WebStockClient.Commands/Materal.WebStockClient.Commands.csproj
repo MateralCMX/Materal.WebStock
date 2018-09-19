@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Materal.WebStockClient.CommandHandlers\Materal.WebStockClient.CommandHandlers.csproj" />
+    <ProjectReference Include="..\Materal.WebStockClient.Common\Materal.WebStockClient.Common.csproj" />
   </ItemGroup>
 
 </Project>

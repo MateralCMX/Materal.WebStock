@@ -3,21 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materal.WebStockClient", "Materal.WebStockClient\Materal.WebStockClient.csproj", "{2FBD7729-0340-4D5A-B68D-5C964E8044DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Materal.WebStockClient", "Materal.WebStockClient\Materal.WebStockClient.csproj", "{2FBD7729-0340-4D5A-B68D-5C964E8044DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materal.WebStockClient.CommandHandlers", "Materal.WebStockClient.CommandHandlers\Materal.WebStockClient.CommandHandlers.csproj", "{AA4AC879-59A2-4630-A59A-BD9753268F24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Materal.WebStockClient.CommandHandlers", "Materal.WebStockClient.CommandHandlers\Materal.WebStockClient.CommandHandlers.csproj", "{AA4AC879-59A2-4630-A59A-BD9753268F24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materal.WebStockClient.Commands", "Materal.WebStockClient.Commands\Materal.WebStockClient.Commands.csproj", "{D4E921D5-9758-4994-AEA2-2A23A2A0C8C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Materal.WebStockClient.Commands", "Materal.WebStockClient.Commands\Materal.WebStockClient.Commands.csproj", "{D4E921D5-9758-4994-AEA2-2A23A2A0C8C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materal.WebStockClient.EventHandlers", "Materal.WebStockClient.EventHandlers\Materal.WebStockClient.EventHandlers.csproj", "{C3EBC7AB-5AC6-4461-A055-D5AA410B74DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Materal.WebStockClient.EventHandlers", "Materal.WebStockClient.EventHandlers\Materal.WebStockClient.EventHandlers.csproj", "{C3EBC7AB-5AC6-4461-A055-D5AA410B74DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materal.WebStockClient.Events", "Materal.WebStockClient.Events\Materal.WebStockClient.Events.csproj", "{0A99FAF4-4E3F-4988-98BE-4F0F69B494DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Materal.WebStockClient.Events", "Materal.WebStockClient.Events\Materal.WebStockClient.Events.csproj", "{0A99FAF4-4E3F-4988-98BE-4F0F69B494DF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{FAD3C1AB-3333-46A0-831E-8BEE91AF5D35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient.UI", "TestClient.UI\TestClient.UI.csproj", "{49A9DAEF-9F15-4CD3-9578-1C31C47F4B06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestClient.UI", "TestClient.UI\TestClient.UI.csproj", "{49A9DAEF-9F15-4CD3-9578-1C31C47F4B06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient.Events", "TestClient.Events\TestClient.Events.csproj", "{05F32878-7B82-4426-B4FE-8A2961101A9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestClient.Events", "TestClient.Events\TestClient.Events.csproj", "{05F32878-7B82-4426-B4FE-8A2961101A9C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestClient.WebStockClient", "TestClient.WebStockClient\TestClient.WebStockClient.csproj", "{D00C753F-9765-480B-8E25-B6E576A79A43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestClient.CommandHandlers", "TestClient.CommandHandlers\TestClient.CommandHandlers.csproj", "{011982B2-C425-48BA-B2D6-4413950AA6FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestClient.Commands", "TestClient.Commands\TestClient.Commands.csproj", "{8FE4B4A1-3F35-408B-AD03-CB2505D1148E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestClient.EventHandlers", "TestClient.EventHandlers\TestClient.EventHandlers.csproj", "{5321AF27-D7CD-49E4-BB97-15DCD90CD4CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Materal.WebStockClient.Common", "Materal.WebStockClient.Common\Materal.WebStockClient.Common.csproj", "{6DE33D05-52B6-4675-96A0-D7FAC1D83087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient.Common", "TestClient.Common\TestClient.Common.csproj", "{A04DA247-7007-43B4-8971-AA7B9F8B2112}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +65,30 @@ Global
 		{05F32878-7B82-4426-B4FE-8A2961101A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05F32878-7B82-4426-B4FE-8A2961101A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05F32878-7B82-4426-B4FE-8A2961101A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D00C753F-9765-480B-8E25-B6E576A79A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D00C753F-9765-480B-8E25-B6E576A79A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D00C753F-9765-480B-8E25-B6E576A79A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D00C753F-9765-480B-8E25-B6E576A79A43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{011982B2-C425-48BA-B2D6-4413950AA6FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{011982B2-C425-48BA-B2D6-4413950AA6FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{011982B2-C425-48BA-B2D6-4413950AA6FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{011982B2-C425-48BA-B2D6-4413950AA6FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FE4B4A1-3F35-408B-AD03-CB2505D1148E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE4B4A1-3F35-408B-AD03-CB2505D1148E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE4B4A1-3F35-408B-AD03-CB2505D1148E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE4B4A1-3F35-408B-AD03-CB2505D1148E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5321AF27-D7CD-49E4-BB97-15DCD90CD4CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5321AF27-D7CD-49E4-BB97-15DCD90CD4CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5321AF27-D7CD-49E4-BB97-15DCD90CD4CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5321AF27-D7CD-49E4-BB97-15DCD90CD4CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE33D05-52B6-4675-96A0-D7FAC1D83087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE33D05-52B6-4675-96A0-D7FAC1D83087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE33D05-52B6-4675-96A0-D7FAC1D83087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE33D05-52B6-4675-96A0-D7FAC1D83087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A04DA247-7007-43B4-8971-AA7B9F8B2112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A04DA247-7007-43B4-8971-AA7B9F8B2112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A04DA247-7007-43B4-8971-AA7B9F8B2112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A04DA247-7007-43B4-8971-AA7B9F8B2112}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +96,11 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{49A9DAEF-9F15-4CD3-9578-1C31C47F4B06} = {FAD3C1AB-3333-46A0-831E-8BEE91AF5D35}
 		{05F32878-7B82-4426-B4FE-8A2961101A9C} = {FAD3C1AB-3333-46A0-831E-8BEE91AF5D35}
+		{D00C753F-9765-480B-8E25-B6E576A79A43} = {FAD3C1AB-3333-46A0-831E-8BEE91AF5D35}
+		{011982B2-C425-48BA-B2D6-4413950AA6FE} = {FAD3C1AB-3333-46A0-831E-8BEE91AF5D35}
+		{8FE4B4A1-3F35-408B-AD03-CB2505D1148E} = {FAD3C1AB-3333-46A0-831E-8BEE91AF5D35}
+		{5321AF27-D7CD-49E4-BB97-15DCD90CD4CB} = {FAD3C1AB-3333-46A0-831E-8BEE91AF5D35}
+		{A04DA247-7007-43B4-8971-AA7B9F8B2112} = {FAD3C1AB-3333-46A0-831E-8BEE91AF5D35}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B5D61CC5-45AF-4B54-8216-213FFF4DCFF8}

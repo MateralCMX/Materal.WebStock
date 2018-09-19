@@ -6,12 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="MateralTools.MConvert" Version="1.1.6" />
-    <PackageReference Include="MateralTools.MVerify" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Materal.WebStockClient.Commands\Materal.WebStockClient.Commands.csproj" />
     <ProjectReference Include="..\Materal.WebStockClient.Common\Materal.WebStockClient.Common.csproj" />
-    <ProjectReference Include="..\Materal.WebStockClient.Events\Materal.WebStockClient.Events.csproj" />
   </ItemGroup>
 
 </Project>

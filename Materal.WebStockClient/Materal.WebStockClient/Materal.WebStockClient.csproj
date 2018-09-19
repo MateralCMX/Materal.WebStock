@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MateralTools.Base" Version="1.0.8" />
+    <PackageReference Include="MateralTools.MVerify" Version="1.0.3" />
+  </ItemGroup>
+
+</Project>

@@ -1,23 +1,23 @@
 ﻿using System.Threading.Tasks;
+using Materal.WebStock.Events;
 
 namespace Materal.WebStock.EventHandlers
 {
     /// <summary>
     /// 命令处理器接口
     /// </summary>
-    /// <typeparam name="T">数据类型</typeparam>
-    public interface IEventHandler<in T>
+    public interface IEventHandler
     {
         /// <summary>
         /// 执行
         /// </summary>
-        /// <param name="data">数据</param>
+        /// <param name="event">事件对象</param>
         /// <returns></returns>
-        Task ExcuteAsync(T data);
+        Task ExcuteAsync(IEvent @event);
         /// <summary>
         /// 执行
         /// </summary>
-        /// <param name="data">数据</param>
-        void Excute(T data);
+        /// <param name="event">事件对象</param>
+        void Excute(IEvent @event);
     }
 }

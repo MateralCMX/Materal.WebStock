@@ -1,10 +1,13 @@
 ﻿using Materal.WebStock.Model;
+using MateralTools.Base.Model;
+using MateralTools.MConvert.Manager;
+using MateralTools.MResult.Model;
 using System;
 using System.Text;
+using TestClient.Commands;
 using TestClient.Common;
 using TestClient.Events;
 using TestClient.WebStockClient;
-using TestClient.WebStockClient.Model;
 
 namespace TestClient.UI
 {
@@ -25,17 +28,17 @@ namespace TestClient.UI
         {
             var testClientConfigModel = new ClientConfigModel
             {
-                Url = "ws://127.0.0.1:10000",
+                Url = "ws://127.0.0.1:10001",
                 EncodingType = Encoding.UTF8,
                 ServerMessageMaxLength = 102400
             };
             _testClientClient.OnConfigChange += TestClientClientOnConfigChange;
-            _testClientClient.OnMessaging += TestClientClientOnMessaging;
+            _testClientClient.OnSendCommand += TestClientClientOnSendCommand;
+            _testClientClient.OnReceiveEvent += TestClientClientOnReceiveEvent;
             _testClientClient.OnStateChange += TestClientClientOnStateChange;
-            _testClientClient.OnOutputMessage += TestClientClientOnOutputMessage;
-            _testClientClient.OnOutputTestClientMessage += TestClientClientOnOutputMessage;
             _testClientClient.SetConfig(testClientConfigModel);
         }
+
         public void Start()
         {
             StartExternalWebStockClient();
@@ -45,12 +48,19 @@ namespace TestClient.UI
             _testClientClient?.Dispose();
         }
         /// <summary>
+        /// 发送命令
+        /// </summary>
+        /// <param name="args"></param>
+        private void TestClientClientOnSendCommand(SendCommandEventArgs args)
+        {
+            ConsoleHelper.TestClientWriteLine(args.Command.StringData, "发送");
+        }
+        /// <summary>
         /// 状态更改事件
         /// </summary>
         /// <param name="args"></param>
         private void TestClientClientOnStateChange(ConnectServerEventArgs args)
         {
-            ConsoleHelper.TestClientWriteLine("状态更新");
             ConsoleHelper.TestClientWriteLine(args.Message);
             switch (args.State)
             {
@@ -59,7 +69,17 @@ namespace TestClient.UI
                 case ClientStateEnum.Ready:
                     break;
                 case ClientStateEnum.Runing:
-                    _testClientClient.StartListeningMessage();
+                    var result = new DataResult
+                    {
+                        ResultType = MResultType.Success,
+                        Message = "Test"
+                    };
+                    _testClientClient.SendCommandAsync(new Command("TestCommandHandler")
+                        {
+                            StringData = result.MToJson(),
+                            Message = "qwer"
+                        });
+                    _testClientClient.StartListeningEvent();
                     break;
                 case ClientStateEnum.ConnectionFailed:
                     if (IsAutoReload)
@@ -75,34 +95,26 @@ namespace TestClient.UI
             }
         }
         /// <summary>
-        /// 消息传递事件
+        /// 接收事件
         /// </summary>
         /// <param name="args"></param>
-        private void TestClientClientOnMessaging(MessaginEventArgs args)
+        private void TestClientClientOnReceiveEvent(ReceiveEventEventArgs args)
         {
-            ConsoleHelper.TestClientWriteLine("消息更新");
-            switch (args.Type)
+            try
             {
-                case MessageingTypeEnum.Command:
-                    ConsoleHelper.TestClientWriteLine(args.Message, "发送");
-                    break;
-                case MessageingTypeEnum.Event:
-                    try
-                    {
-                        ConsoleHelper.TestClientWriteLine(args.Message, "接收");
-                        Event @event = new Event
-                        {
-                            Data = args.Data.ToString()
-                        };
-                        _testClientClient.HandleEventAsync()
-                    }
-                    catch (TestClientClientException ex)
-                    {
-                        ConsoleHelper.TestClientWriteLine(ex.Message, "解析错误");
-                    }
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                string message = _testClientClient.Config.EncodingType.GetString(args.ByteArrayData);
+                ConsoleHelper.TestClientWriteLine(message, "接收");
+                var @event = new Event("TestEventHandler")
+                {
+                    Message = "测试命令",
+                    ByteArrayData = args.ByteArrayData,
+                    StringData = message
+                };
+                _testClientClient.HandleEventAsync(@event);
+            }
+            catch (MException ex)
+            {
+                ConsoleHelper.TestClientWriteLine(ex.Message, "解析错误");
             }
         }
         /// <summary>
@@ -111,16 +123,7 @@ namespace TestClient.UI
         /// <param name="args"></param>
         private void TestClientClientOnConfigChange(ConfigEventArgs args)
         {
-            ConsoleHelper.TestClientWriteLine("配置更新");
             ConsoleHelper.TestClientWriteLine(args.Message);
-        }
-        /// <summary>
-        /// 输出消息事件
-        /// </summary>
-        /// <param name="args"></param>
-        private void TestClientClientOnOutputMessage(MessageEventArgs args)
-        {
-            ConsoleHelper.TestClientWriteLine(args.Message, args.SubTitle);
         }
         /// <summary>
         /// 启动外接WebStock客户端

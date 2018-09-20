@@ -1,9 +1,9 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using MateralTools.Base.Model;
+using System;
 
 namespace Materal.WebStock.CommandHandlers.Model
 {
-    public class CommandHandlerException : ApplicationException
+    public class CommandHandlerException : MException
     {
         public CommandHandlerException()
         {
@@ -14,10 +14,6 @@ namespace Materal.WebStock.CommandHandlers.Model
         }
 
         public CommandHandlerException(string message, Exception innerException) : base(message, innerException)
-        {
-        }
-
-        protected CommandHandlerException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

@@ -1,14 +1,22 @@
 ﻿namespace Materal.WebStock.Events
 {
-    public interface IEvent<T>
+    public interface IEvent
     {
         /// <summary>
         /// 处理器名称
         /// </summary>
-        string HandlerName { get; set; }
+        string HandlerName { get; }
         /// <summary>
-        /// 数据
+        /// 文本数据
         /// </summary>
-        T Data { get; set; }
+        string StringData { get; set; }
+        /// <summary>
+        /// 二进制数据
+        /// </summary>
+        byte[] ByteArrayData { get; set; }
+        /// <summary>
+        /// 消息
+        /// </summary>
+        string Message { get; set; }
     }
 }

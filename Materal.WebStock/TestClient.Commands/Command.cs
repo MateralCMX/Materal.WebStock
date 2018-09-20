@@ -1,30 +1,16 @@
-﻿using System.Windows.Input;
-using Materal.WebStock.Commands;
-using MateralTools.Base.Model;
-using MateralTools.MConvert.Manager;
+﻿using Materal.WebStock.Commands;
 
 namespace TestClient.Commands
 {
-    public abstract class Command : ICommand<string>
+    public class Command : ICommand
     {
-        /// <summary>
-        /// 转换为文本
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+        public Command(string handlerName)
         {
-            try
-            {
-                return this.MToJson();
-            }
-            catch (MException ex)
-            {
-                throw new CommandException("转换为命令Json出错", ex);
-            }
+            HandlerName = handlerName;
         }
-
-        public string HandelerName { get; set; }
-        public string Data { get; set; }
+        public string HandlerName { get; }
+        public string StringData { get; set; }
+        public byte[] ByteArrayData { get; set; }
         public string Message { get; set; }
     }
 }

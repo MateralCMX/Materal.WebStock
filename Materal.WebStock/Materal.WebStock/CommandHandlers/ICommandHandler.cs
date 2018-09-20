@@ -1,23 +1,23 @@
 ﻿using System.Threading.Tasks;
+using Materal.WebStock.Commands;
 
 namespace Materal.WebStock.CommandHandlers
 {
     /// <summary>
     /// 命令处理器接口
     /// </summary>
-    /// <typeparam name="T">数据类型</typeparam>
-    public interface ICommandHandler<in T>
+    public interface ICommandHandler
     {
         /// <summary>
         /// 执行
         /// </summary>
-        /// <param name="data">数据</param>
+        /// <param name="command">命令对象</param>
         /// <returns></returns>
-        Task ExcuteAsync(T data);
+        Task ExcuteAsync(ICommand command);
         /// <summary>
         /// 执行
         /// </summary>
-        /// <param name="data">数据</param>
-        void Excute(T data);
+        /// <param name="command">命令对象</param>
+        void Excute(ICommand command);
     }
 }

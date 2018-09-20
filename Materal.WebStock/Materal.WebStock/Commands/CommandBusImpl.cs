@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Materal.WebStock.Commands
 {
-    public class CommandBusImpl<T> : ICommandBus<T>
+    public class CommandBusImpl : ICommandBus
     {
         private readonly IServiceProvider _serviceProvider;
         private readonly ICommandHandlerHelper _handlerHelper;
@@ -15,23 +15,23 @@ namespace Materal.WebStock.Commands
             _serviceProvider = serviceProvider;
             _handlerHelper = handlerHelper;
         }
-        public void Send(string handlerName, T data)
+        public void Send(ICommand command)
         {
-            GetHandler(handlerName).Excute(data);
+            GetHandler(command.HandlerName).Excute(command);
         }
-        public async Task SendAsync(string handlerName, T data)
+        public async Task SendAsync(ICommand command)
         {
-            await GetHandler(handlerName).ExcuteAsync(data);
+            await GetHandler(command.HandlerName).ExcuteAsync(command);
         }
         /// <summary>
         /// 获得处理器
         /// </summary>
         /// <param name="handlerName">处理器名称</param>
         /// <returns>处理器对象</returns>
-        public ICommandHandler<T> GetHandler(string handlerName)
+        public ICommandHandler GetHandler(string handlerName)
         {
             Type handlerType = _handlerHelper.GetHandlerType(handlerName);
-            var handler = (ICommandHandler<T>)ActivatorUtilities.CreateInstance(_serviceProvider, handlerType);
+            var handler = (ICommandHandler)ActivatorUtilities.CreateInstance(_serviceProvider, handlerType);
             if (handler == null) throw new CommandException("未找到对应处理器");
             return handler;
         }

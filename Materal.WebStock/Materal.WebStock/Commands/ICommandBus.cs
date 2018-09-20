@@ -5,22 +5,19 @@ namespace Materal.WebStock.Commands
     /// <summary>
     /// 命令总线
     /// </summary>
-    /// <typeparam name="T">数据类型</typeparam>
-    public interface ICommandBus<in T>
+    public interface ICommandBus
     {
         /// <summary>
         /// 发送
         /// </summary>
-        /// <param name="handlerName">处理器名称</param>
-        /// <param name="data">数据</param>
-        void Send(string handlerName, T data);
+        /// <param name="command">命令对象</param>
+        void Send(ICommand command);
         /// <summary>
         /// 发送
         /// </summary>
-        /// <param name="handlerName">处理器名称</param>
-        /// <param name="data">数据</param>
+        /// <param name="command">命令对象</param>
         /// <returns></returns>
-        Task SendAsync(string handlerName, T data);
+        Task SendAsync(ICommand command);
 
     }
 }

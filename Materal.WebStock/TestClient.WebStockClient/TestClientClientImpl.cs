@@ -1,57 +1,32 @@
 ﻿using Materal.WebStock;
 using Materal.WebStock.Events;
-using Materal.WebStock.Model;
-using MateralTools.MConvert.Model;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using TestClient.Commands;
 using TestClient.Events;
+using TestClient.WebStockClient.Model;
 
 namespace TestClient.WebStockClient
 {
-    public class TestClientClientImpl : ClientImpl<string>, ITestClientClient
+    public class TestClientClientImpl : ClientImpl, ITestClientClient
     {
         private readonly IServiceProvider _serviceProvider;
-        public event MessageEvent OnOutputTestClientMessage;
         public TestClientClientImpl(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
-        }
-        public async Task SendCommandAsync(Command commandM)
-        {
-            try
-            {
-                await SendCommandAsync(commandM.Data,commandM.Message);
-            }
-            catch (MConvertException)
-            {
-                OnOutputTestClientMessage?.Invoke(new MessageEventArgs
-                {
-                    Message = "未能解析服务器推送的消息"
-                });
-            }
         }
 
         public async Task HandleEventAsync(Event eventM)
          {
             try
             {
-                var commandBus = (IEventBus<string>)_serviceProvider.GetRequiredService(typeof(IEventBus<string>));
-                await commandBus.SendAsync(eventM.HandlerName, eventM.Data);
+                var commandBus = (IEventBus)_serviceProvider.GetRequiredService(typeof(IEventBus));
+                await commandBus.SendAsync(eventM);
             }
-            catch (MConvertException)
+            catch (Exception ex)
             {
-                OnOutputTestClientMessage?.Invoke(new MessageEventArgs
-                {
-                    Message = "未能解析服务器推送的消息"
-                });
+                throw new TestClientClientException("未能解析事件", ex);
             }
-        }
-
-        public override async Task SendCommandAsync(string data, string message)
-        {
-            await SendCommandByStringAsync(data, message);
         }
     }
 }

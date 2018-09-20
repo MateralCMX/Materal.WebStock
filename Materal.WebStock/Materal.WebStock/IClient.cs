@@ -1,4 +1,5 @@
-﻿using Materal.WebStock.Model;
+﻿using Materal.WebStock.Commands;
+using Materal.WebStock.Model;
 using System;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace Materal.WebStock
     /// <summary>
     /// WebStock客户端
     /// </summary>
-    public interface IClient<in T> : IDisposable
+    public interface IClient : IDisposable
     {
         #region 事件
         /// <summary>
@@ -22,12 +23,13 @@ namespace Materal.WebStock
         /// <summary>
         /// 当有消息传递时
         /// </summary>
-        event MessagingEvent OnMessaging;
+        event ReceiveEventEvent OnReceiveEvent;
         /// <summary>
-        /// 输出消息
+        /// 当有消息传递时
         /// </summary>
-        event MessageEvent OnOutputMessage;
+        event SendCommandEvent OnSendCommand;
         #endregion
+        ClientConfigModel Config { get; }
         ClientStateEnum State { get;}
         /// <summary>
         /// 配置服务
@@ -50,34 +52,31 @@ namespace Materal.WebStock
         /// <returns></returns>
         Task StopAsync();
         /// <summary>
-        /// 发送ByteArray
+        /// 发送命令
         /// </summary>
-        /// <param name="data">数据</param>
-        /// <param name="message">消息</param>
+        /// <param name="command">命令对象</param>
         /// <returns></returns>
-        Task SendCommandAsync(T data, string message);
+        Task SendCommandAsync(ICommand command);
         /// <summary>
-        /// 发送消息
+        /// 发送String命令
         /// </summary>
-        /// <param name="data">数据</param>
-        /// <param name="message">消息</param>
+        /// <param name="command">命令对象</param>
         /// <returns></returns>
-        Task SendCommandByStringAsync(string data, string message);
+        Task SendCommandByStringAsync(ICommand command);
         /// <summary>
-        /// 发送ByteArray
+        /// 发送ByteArray命令
         /// </summary>
-        /// <param name="data">数据</param>
-        /// <param name="message">消息</param>
+        /// <param name="command">命令对象</param>
         /// <returns></returns>
-        Task SendCommandByBytesAsync(byte[] data,string message);
+        Task SendCommandByBytesAsync(ICommand command);
+        /// <summary>
+        /// 开始监听事件
+        /// </summary>
+        Task StartListeningEventAsync();
         /// <summary>
         /// 开始监听消息
         /// </summary>
-        Task StartListeningMessageAsync();
-        /// <summary>
-        /// 开始监听消息
-        /// </summary>
-        void StartListeningMessage();
+        void StartListeningEvent();
     }
     #region 委托定义
     /// <summary>
@@ -91,14 +90,14 @@ namespace Materal.WebStock
     /// <param name="args">参数</param>
     public delegate void ConnectServerEvent(ConnectServerEventArgs args);
     /// <summary>
-    /// 消息传递事件委托
+    /// 接收事件事件委托
     /// </summary>
     /// <param name="args">参数</param>
-    public delegate void MessagingEvent(MessaginEventArgs args);
+    public delegate void ReceiveEventEvent(ReceiveEventEventArgs args);
     /// <summary>
-    /// 消息事件委托
+    /// 发送命令事件委托
     /// </summary>
     /// <param name="args">参数</param>
-    public delegate void MessageEvent(MessageEventArgs args);
+    public delegate void SendCommandEvent(SendCommandEventArgs args);
     #endregion
 }

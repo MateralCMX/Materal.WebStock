@@ -1,9 +1,9 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using MateralTools.Base.Model;
+using System;
 
 namespace Materal.WebStock.EventHandlers.Model
 {
-    public class EventHandlerException : ApplicationException
+    public class EventHandlerException : MException
     {
         public EventHandlerException()
         {
@@ -14,10 +14,6 @@ namespace Materal.WebStock.EventHandlers.Model
         }
 
         public EventHandlerException(string message, Exception innerException) : base(message, innerException)
-        {
-        }
-
-        protected EventHandlerException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

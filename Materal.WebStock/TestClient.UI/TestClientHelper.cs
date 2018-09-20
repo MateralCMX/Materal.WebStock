@@ -16,8 +16,8 @@ namespace TestClient.UI
         public static void RegisterCustomerService()
         {
             Services = new ServiceCollection();
-            Services.AddCommandBus<string>(Assembly.Load("TestClient.CommandHandlers"));
-            Services.AddEventBus<string>(Assembly.Load("TestClient.EventHandlers"));
+            Services.AddCommandBus(Assembly.Load("TestClient.CommandHandlers"));
+            Services.AddEventBus(Assembly.Load("TestClient.EventHandlers"));
             Services.AddSingleton<ITestClientClient, TestClientClientImpl>();
         }
         /// <summary>

@@ -1,15 +1,19 @@
 ﻿namespace Materal.WebStock.Commands
 {
-    public interface ICommand<T>
+    public interface ICommand
     {
         /// <summary>
         /// 处理器名称
         /// </summary>
-        string HandelerName { get; set; }
+        string HandlerName { get; }
         /// <summary>
-        /// 数据
+        /// 字符串数据
         /// </summary>
-        T Data { get; set; }
+        string StringData { get; set; }
+        /// <summary>
+        /// 二进制数据
+        /// </summary>
+        byte[] ByteArrayData { get; set; }
         /// <summary>
         /// 消息
         /// </summary>

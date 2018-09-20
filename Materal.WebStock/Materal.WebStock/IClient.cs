@@ -73,10 +73,6 @@ namespace Materal.WebStock
         /// 开始监听事件
         /// </summary>
         Task StartListeningEventAsync();
-        /// <summary>
-        /// 开始监听消息
-        /// </summary>
-        void StartListeningEvent();
     }
     #region 委托定义
     /// <summary>

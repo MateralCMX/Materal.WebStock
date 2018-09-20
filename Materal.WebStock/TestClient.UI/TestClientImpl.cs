@@ -79,13 +79,14 @@ namespace TestClient.UI
                             StringData = result.MToJson(),
                             Message = "qwer"
                         });
-                    _testClientClient.StartListeningEvent();
+                    _testClientClient.StartListeningEventAsync().Wait();
                     break;
                 case ClientStateEnum.ConnectionFailed:
                     if (IsAutoReload)
                     {
                         ConsoleHelper.TestClientWriteLine("重新连接");
                         _testClientClient.ReloadAsync().Wait();
+                        _testClientClient.StartListeningEventAsync().Wait();
                     }
                     break;
                 case ClientStateEnum.Stop:

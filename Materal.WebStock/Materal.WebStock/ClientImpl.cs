@@ -220,11 +220,6 @@ namespace Materal.WebStock
             }
         }
 
-        public virtual async void StartListeningEvent()
-        {
-            await StartListeningEventAsync();
-        }
-
         public virtual async Task StopAsync()
         {
             if (State == ClientStateEnum.Runing)

@@ -3,8 +3,8 @@ using Materal.WebStock.Events;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
+using TestClient.Common;
 using TestClient.Events;
-using TestClient.WebStockClient.Model;
 
 namespace TestClient.WebStockClient
 {
@@ -25,7 +25,7 @@ namespace TestClient.WebStockClient
             }
             catch (Exception ex)
             {
-                throw new TestClientClientException("未能解析事件", ex);
+                ConsoleHelper.TestClientWriteLine(ex.Message, "未能解析事件");
             }
         }
     }

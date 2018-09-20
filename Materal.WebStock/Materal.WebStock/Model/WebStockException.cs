@@ -1,9 +1,8 @@
 ﻿using System;
-using MateralTools.Base.Model;
 
 namespace Materal.WebStock.Model
 {
-    public class WebStockException : MException
+    public class WebStockException : Exception
     {
         public WebStockException()
         {

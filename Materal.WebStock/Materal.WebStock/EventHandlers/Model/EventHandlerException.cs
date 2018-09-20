@@ -1,9 +1,9 @@
-﻿using MateralTools.Base.Model;
+﻿using Materal.WebStock.Model;
 using System;
 
 namespace Materal.WebStock.EventHandlers.Model
 {
-    public class EventHandlerException : MException
+    public class EventHandlerException : WebStockException
     {
         public EventHandlerException()
         {
